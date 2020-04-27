@@ -1,0 +1,2 @@
+# Docker_Voronoiz
+Dockerコンテナ上でボロノイ図を作成して表示するためのもの
