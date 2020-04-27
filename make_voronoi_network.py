@@ -1,4 +1,4 @@
-import scipy.spatial as V
+from scipy.spatial import Voronoi, voronoi_plot_2d
 import numpy as np
 import networkx as nx
 import pandas as pd
@@ -10,9 +10,9 @@ def make_voronoi(number_of_points = 100):
     maxvalue = 100
     #--第二部：ボロノイ図の作成--#
     A=np.array([[np.random.rand()*maxvalue,np.random.rand()*maxvalue] for i in range(number_of_points)])
-    vor = V.Voronoi(A)
-    V.voronoi_plot_2d(vor,show_points = False)
-    #V.voronoi_plot_2d(vor)
+    vor = Voronoi(A)
+    voronoi_plot_2d(vor,show_points = False)
+    #scp.voronoi_plot_2d(vor)
     plt.show()
     #print(vor.points)#元の点の座標
     #print(vor.vertices)#Voronoiの点の座標
@@ -35,10 +35,7 @@ def make_voronoi(number_of_points = 100):
     G.remove_node(-1)
     G.remove_nodes_from(illigal_points)
     #pos = np.delete(pos,illigal_points,axis=0)
-    
-    #print(pos)pass
     #--第四部：グラフとposを返す--#
-    #pos_g = pos
     data = [G,pos]
     fout.figure_out(G,pos,'Voronoiz')
     return(data)
@@ -46,3 +43,4 @@ def make_voronoi(number_of_points = 100):
 
 if  __name__ == "__main__":
     make_voronoi()
+
