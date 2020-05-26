@@ -12,7 +12,6 @@ def make_voronoi(number_of_points = 100):
     A=np.array([[np.random.rand()*maxvalue,np.random.rand()*maxvalue] for i in range(number_of_points)])
     vor = Voronoi(A)
     voronoi_plot_2d(vor,show_points = False)
-    #scp.voronoi_plot_2d(vor)
     plt.show()
     #print(vor.points)#元の点の座標
     #print(vor.vertices)#Voronoiの点の座標
